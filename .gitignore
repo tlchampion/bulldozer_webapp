@@ -92,4 +92,4 @@ target/
 # Mypy cache
 .mypy_cache/
 
-.code-workspace
+bulldozer_webapp.code-workspace
