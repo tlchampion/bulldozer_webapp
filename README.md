@@ -1,0 +1,1 @@
+This project implements a simple web application to predict the sale price of a  piece of heavy machinery based upon a machine learning model built on data provided by the Kaggle competition "Blue Book for Bulldozers"

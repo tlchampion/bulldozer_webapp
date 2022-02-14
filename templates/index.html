@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-sm">
+  <h1>Welcome to the 'Bulldozer Blue Book Price Predictor'</h1>
+  This price predictor is an implementation of a machine learning model built based upon data available from the <a
+    href="http://www.kaggle.com" target="blank">Kaggle</a>
+  competition <a href="https://www.kaggle.com/c/bluebook-for-bulldozers" target="blank">"Blue Book for Bulldozers"</a>
+  <br />
+  <br />
+  The model relies on the input of 41 data points, such as year of manufacture and date of sale, in order to predict the
+  sale price for a piece of heavy machinery. Click <a href="/prediction">here</a> to access the input form.
+  <br><br>
+  There is also a dashboard available for insights into the model itself, which can be accessed <a href="#">here</a>
+
+
+</div>
+
+{% endblock %}

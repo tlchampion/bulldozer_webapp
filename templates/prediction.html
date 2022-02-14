@@ -1,0 +1,727 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-sm">
+  <form action="{{ url_for('predict')}}" method="post" class="form-horizontal">
+
+    <!-- ModelID Field -->
+    <div class=" form-group">
+      <label for="modelid" class="col-sm-2 control-label">ModelID</label>
+
+      <input type="number" name="ModelID" id="modelid" required="required" class="col-sm-2 " />
+
+    </div>
+
+
+
+
+    <!-- Auctioneer ID Field -->
+    <div class="form-group mt-2">
+      <label for="auctioneerid" class="col-sm-2">AuctioneerID</label>
+
+      <select id="auctioneerid" class="col-sm-3" name="auctioneerID">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="99">99</option>
+        <option value="999" selected>Unknown</option>
+
+      </select>
+    </div>
+    <!-- YearMade -->
+    <div class="form-group mt-2">
+      <label for="yearmade" class="col-sm-2">Year Made</label>
+
+      <select id="yearmade" class="col-sm-3" name="YearMade">
+        <option value="1000" selected>Unknown</option>
+        <option value="1919">1919</option>
+        <option value="1920">1920</option>
+        <option value="1937">1937</option>
+        <option value="1942">1942</option>
+        <option value="1947">1947</option>
+        <option value="1948">1948</option>
+        <option value="1949">1949</option>
+        <option value="1950">1950</option>
+        <option value="1951">1951</option>
+        <option value="1952">1952</option>
+        <option value="1953">1953</option>
+        <option value="1954">1954</option>
+        <option value="1955">1955</option>
+        <option value="1956">1956</option>
+        <option value="1957">1957</option>
+        <option value="1958">1958</option>
+        <option value="1959">1959</option>
+        <option value="1960">1960</option>
+        <option value="1961">1961</option>
+        <option value="1962">1962</option>
+        <option value="1963">1963</option>
+        <option value="1964">1964</option>
+        <option value="1965">1965</option>
+        <option value="1966">1966</option>
+        <option value="1967">1967</option>
+        <option value="1968">1968</option>
+        <option value="1969">1969</option>
+        <option value="1970">1970</option>
+        <option value="1971">1971</option>
+        <option value="1972">1972</option>
+        <option value="1973">1973</option>
+        <option value="1974">1974</option>
+        <option value="1975">1975</option>
+        <option value="1976">1976</option>
+        <option value="1977">1977</option>
+        <option value="1978">1978</option>
+        <option value="1979">1979</option>
+        <option value="1980">1980</option>
+        <option value="1981">1981</option>
+        <option value="1982">1982</option>
+        <option value="1983">1983</option>
+        <option value="1984">1984</option>
+        <option value="1985">1985</option>
+        <option value="1986">1986</option>
+        <option value="1987">1987</option>
+        <option value="1988">1988</option>
+        <option value="1989">1989</option>
+        <option value="1990">1990</option>
+        <option value="1991">1991</option>
+        <option value="1992">1992</option>
+        <option value="1993">1993</option>
+        <option value="1994">1994</option>
+        <option value="1995">1995</option>
+        <option value="1996">1996</option>
+        <option value="1997">1997</option>
+        <option value="1998">1998</option>
+        <option value="1999">1999</option>
+        <option value="2000">2000</option>
+        <option value="2001">2001</option>
+        <option value="2002">2002</option>
+        <option value="2003">2003</option>
+        <option value="2004">2004</option>
+        <option value="2005">2005</option>
+        <option value="2006">2006</option>
+        <option value="2007">2007</option>
+        <option value="2008">2008</option>
+        <option value="2009">2009</option>
+        <option value="2010">2010</option>
+        <option value="2011">2011</option>
+        <option value="2012">2012</option>
+        <option value="2013">2013</option>
+        <option value="2014">2014</option>
+
+      </select>
+    </div>
+    <!-- UsageBand -->
+    <div class="form-group mt-2">
+      <label for="UsageBand" class="col-sm-2">UsageBand</label>
+      <select id="UsageBand " class="col-sm-3" name="UsageBand">
+        <option value="High">High</option>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="Missing" selected>Unknown</option>
+      </select>
+    </div>
+    <!-- ProductSize -->
+    <div class="form-group mt-2">
+      <label for="ProductSize" class="col-sm-2">ProductSize</label>
+      <select id="ProductSize" class="col-sm-3" name="ProductSize">
+        <option value="Compact">Compact</option>
+        <option value="Large">Large</option>
+        <option value="Large / Medium">Large / Medium</option>
+        <option value="Medium">Medium</option>
+        <option value="Mini">Mini</option>
+        <option value="Missing" selected>Unknown</option>
+        <option value="Small">Small</option>
+      </select>
+    </div>
+    <!-- state -->
+    <div class="form-group mt-2"> <label for="state" class="col-sm-2">state</label>
+      <select id="state" class="col-sm-3" name="state">
+        <option value="Unspecified" selected>Unspecified</option>
+        <option value="Alabama">Alabama</option>
+        <option value="Alaska">Alaska</option>
+        <option value="Arizona">Arizona</option>
+        <option value="Arkansas">Arkansas</option>
+        <option value="California">California</option>
+        <option value="Colorado">Colorado</option>
+        <option value="Connecticut">Connecticut</option>
+        <option value="Delaware">Delaware</option>
+        <option value="Florida">Florida</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Hawaii">Hawaii</option>
+        <option value="Idaho">Idaho</option>
+        <option value="Illinois">Illinois</option>
+        <option value="Indiana">Indiana</option>
+        <option value="Iowa">Iowa</option>
+        <option value="Kansas">Kansas</option>
+        <option value="Kentucky">Kentucky</option>
+        <option value="Louisiana">Louisiana</option>
+        <option value="Maine">Maine</option>
+        <option value="Maryland">Maryland</option>
+        <option value="Massachusetts">Massachusetts</option>
+        <option value="Michigan">Michigan</option>
+        <option value="Minnesota">Minnesota</option>
+        <option value="Mississippi">Mississippi</option>
+        <option value="Missouri">Missouri</option>
+        <option value="Montana">Montana</option>
+        <option value="Nebraska">Nebraska</option>
+        <option value="Nevada">Nevada</option>
+        <option value="New Hampshire">New Hampshire</option>
+        <option value="New Jersey">New Jersey</option>
+        <option value="New Mexico">New Mexico</option>
+        <option value="New York">New York</option>
+        <option value="North Carolina">North Carolina</option>
+        <option value="North Dakota">North Dakota</option>
+        <option value="Ohio">Ohio</option>
+        <option value="Oklahoma">Oklahoma</option>
+        <option value="Oregon">Oregon</option>
+        <option value="Pennsylvania">Pennsylvania</option>
+        <option value="Puerto Rico">Puerto Rico</option>
+        <option value="Rhode Island">Rhode Island</option>
+        <option value="South Carolina">South Carolina</option>
+        <option value="South Dakota">South Dakota</option>
+        <option value="Tennessee">Tennessee</option>
+        <option value="Texas">Texas</option>
+
+        <option value="Utah">Utah</option>
+        <option value="Vermont">Vermont</option>
+        <option value="Virginia">Virginia</option>
+        <option value="Washington">Washington</option>
+        <option value="Washington DC">Washington DC</option>
+        <option value="West Virginia">West Virginia</option>
+        <option value="Wisconsin">Wisconsin</option>
+        <option value="Wyoming">Wyoming</option>
+      </select>
+    </div>
+    <!-- ProductGroup -->
+    <div class="form-group mt-2">
+      <label for="ProductGroup" class="col-sm-2">ProductGroup</label>
+      <select id="ProductGroup" class="col-sm-3" name="ProductGroup">
+        <option value="BL">BL</option>
+        <option value="MG">MG</option>
+        <option value="SSL">SSL</option>
+        <option value="TEX">TEX</option>
+        <option value="TTT">TTT</option>
+        <option value="WL">WL</option>
+      </select>
+    </div>
+    <!-- DriverSystem -->
+    <div class="form-group mt-2">
+      <label for="Drive_System" class="col-sm-2">Drive_System</label>
+      <select id="Drive_System" class="col-sm-3" name="Drive_System">
+        <option value="Missing" selected>Unknown</option>
+        <option value="All Wheel Drive">All Wheel Drive</option>
+        <option value="Four Wheel Drive">Four Wheel Drive</option>
+        <option value="No">None</option>
+        <option value="Two Wheel Drive">Two Wheel Drive</option>
+      </select>
+    </div>
+    <!-- Enclosure -->
+    <div class="form-group mt-2">
+      <label for="Enclosure" class="col-sm-2">Enclosure</label>
+      <select id="Enclosure" class="col-sm-3" name="Enclosure">
+        <option value="Missing" selected>Unknown</option>
+        <option value="EROPS">EROPS</option>
+        <option value="EROPS AC">EROPS AC</option>
+        <option value="EROPS w AC">EROPS w AC</option>
+        <option value="NO ROPS">NO ROPS</option>
+        <option value="None or Unspecified">None</option>
+        <option value="OROPS">OROPS</option>
+      </select>
+    </div>
+
+    <!-- Forks -->
+    <div class="form-group mt-2">
+      <label for="Forks" class="col-sm-2">Forks</label>
+      <select id="Forks" class="col-sm-3" name="Forks">
+        <option value="Missing" selected>Unknown</option>
+        <option value="None or Unspecified">None</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </div>
+
+    <!-- PadType -->
+    <div class="form-group mt-2">
+      <label for="Pad_Type" class="col-sm-2">Pad_Type</label>
+      <select id="Pad_Type" class="col-sm-3" name="Pad_Type">
+        <option value="Missing" selected>Unknown</option>
+        <option value="Grouser">Grouser</option>
+        <option value="None or Unspecified">None</option>
+        <option value="Reversible">Reversible</option>
+        <option value="Street">Street</option>
+      </select>
+    </div>
+
+    <!-- RideControl -->
+    <div class="form-group mt-2">
+      <label for="Ride_Control" class="col-sm-2">Ride_Control</label>
+      <select id="Ride_Control" class="col-sm-3" name="Ride_Control">
+        <option value="Missing" selected>Unknown</option>
+        <option value="No">No</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </div>
+
+    <!-- Stick -->
+    <div class="form-group mt-2">
+      <label for="Stick" class="col-sm-2">Stick</label>
+      <select id="Stick" class="col-sm-3" name="Stick">
+        <option value="Missing" selected>Unknown</option>
+        <option value="Extended">Extended</option>
+
+        <option value="Standard">Standard</option>
+      </select>
+    </div>
+
+    <!-- Transmission -->
+    <div class="form-group mt-2">
+      <label for="Transmission" class="col-sm-2">Transmission</label>
+      <select id="Transmission" class="col-sm-3" name="Transmission">
+        <option value="Missing" selected>Unknown</option>
+        <option value="AutoShift">AutoShift</option>
+        <option value="Autoshift">Autoshift</option>
+        <option value="Direct Drive">Direct Drive</option>
+        <option value="Hydrostatic">Hydrostatic</option>
+        <option value="None or Unspecified">None</option>
+        <option value="Powershift">Powershift</option>
+        <option value="Powershuttle">Powershuttle</option>
+        <option value="Standard">Standard</option>
+
+      </select>
+    </div>
+
+    <!-- Turbocharhed -->
+    <div class="form-group mt-2">
+      <label for="Turbocharged" class="col-sm-2">Turbocharged</label>
+      <select id="Turbocharged" class="col-sm-3" name="Turbocharged">
+        <option value="Missing" selected>Unknown</option>
+        <option value="None or Unspecified">No</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </div>
+
+    <!-- BladeExtension -->
+    <div class="form-group mt-2">
+      <label for="Blade_Extension" class="col-sm-2">Blade_Extension</label>
+      <select id="Blade_Extension" class="col-sm-3" name="Blade_Extension">
+        <option value="Missing" selected>Unknown</option>
+        <option value="None or Unspecified">No</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </div>
+
+    <!-- Blade Width -->
+    <div class="form-group mt-2">
+      <label for="Blade_Width" class="col-sm-2">Blade_Width</label>
+      <select id="Blade_Width" class="col-sm-3" name="Blade_Width">
+        <option value="Missing" selected>Unknown</option>
+        <option value="<12'"> Less Than 12' </option>
+        <option value="12'">12'</option>
+        <option value="13'">13'</option>
+        <option value="14'">14'</option>
+        <option value="16'">16'</option>
+        <option value="None or Unspecified">None</option>
+      </select>
+    </div>
+
+
+    <!-- EnclosureType-->
+    <div class="form-group mt-2">
+      <label for="Enclosure_Type" class="col-sm-2">Enclosure_Type</label>
+      <select id="Enclosure_Type" class="col-sm-3" name="Enclosure_Type">
+        <option value="Missing" selected>Unknown</option>
+        <option value="High Profile">High Profile</option>
+        <option value="Low Profile">Low Profile</option>
+        <option value="None or Unspecified">None</option>
+      </select>
+    </div>
+
+    <!-- EngineHorsepower -->
+    <div class="form-group mt-2">
+      <label for="Engine_Horsepower" class="col-sm-2">Engine_Horsepower</label>
+      <select id="Engine_Horsepower" class="col-sm-3" name="Engine_Horsepower">
+        <option value="Missing" selected>Unknown</option>
+        <option value="No">None</option>
+        <option value="Variable">Variable</option>
+      </select>
+    </div>
+
+    <!-- Hydraulics -->
+    <div class="form-group mt-2">
+      <label for="Hydraulics" class="col-sm-2">Hydraulics</label>
+      <select id="Hydraulics" class="col-sm-3" name="Hydraulics">
+        <option value="Missing" selected>Unknown</option>
+        <option value="2 Valve">2 Valve</option>
+        <option value="3 Valve">3 Valve</option>
+        <option value="4 Valve">4 Valve</option>
+        <option value="Auxiliary">Auxiliary</option>
+        <option value="Base + 1 Function">Base + 1 Function</option>
+        <option value="Base + 2 Function">Base + 2 Function</option>
+        <option value="Base + 3 Function">Base + 3 Function</option>
+        <option value="Base + 4 Function">Base + 4 Function</option>
+        <option value="Base + 5 Function">Base + 5 Function</option>
+        <option value="Base + 6 Function">Base + 6 Function</option>
+
+        <option value="None or Unspecified">None</option>
+        <option value="Standard">Standard</option>
+      </select>
+    </div>
+
+
+    <!-- Pushblock -->
+    <div class="form-group mt-2">
+      <label for="Pushblock" class="col-sm-2">Pushblock</label>
+      <select id="Pushblock" class="col-sm-3" name="Pushblock">
+        <option value="Missing" selected>Unknown</option>
+        <option value="None or Unspecified">None</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </div>
+
+    <!-- Ripper -->
+    <div class="form-group mt-2">
+      <label for="Ripper" class="col-sm-2">Ripper</label>
+      <select id="Ripper" class="col-sm-3" name="Ripper">
+        <option value="Missing" selected>Unknown</option>
+        <option value="Multi Shank">Multi Shank</option>
+        <option value="None or Unspecified">None</option>
+        <option value="Single Shank">Single Shank</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </div>
+
+
+    <!-- Scarifier -->
+    <div class="form-group mt-2">
+      <label for="Scarifier" class="col-sm-2">Scarifier</label>
+      <select id="Scarifier" class="col-sm-3" name="Scarifier">
+        <option value="Missing" selected>Unknown</option>
+        <option value="None or Unspecified">None</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </div>
+
+    <!-- TipControl -->
+    <div class="form-group mt-2">
+      <label for="Tip_Control" class="col-sm-2">Tip_Control</label>
+      <select id="Tip_Control" class="col-sm-3" name="Tip_Control">
+        <option value="Missing" selected>Unknown</option>
+        <option value="None or Unspecified">None </option>
+        <option value="Sideshift & Tip">Sideshift & Tip</option>
+        <option value="Tip">Tip</option>
+      </select>
+    </div>
+
+    <!-- TireSize -->
+    <div class="form-group mt-2">
+      <label for="Tire_Size" class="col-sm-2">Tire_Size</label>
+      <select id="Tire_Size" class="col-sm-3" name="Tire_Size">
+        <option value="Missing" selected>Unknown</option>
+        <option value="10 inch">10 inch</option>
+        <option value="10"">10" </option>
+        <option value="13"">13" </option>
+        <option value="14"">14" </option>
+        <option value="15.5">15.5</option>
+        <option value="15.5"">15.5" </option>
+        <option value="17.5">17.5</option>
+        <option value="17.5"">17.5" </option>
+        <option value="20.5">20.5</option>
+        <option value="20.5"">20.5" </option>
+        <option value="23.1"">23.1" </option>
+        <option value="23.5">23.5</option>
+        <option value="23.5"">23.5" </option>
+        <option value="26.5">26.5</option>
+        <option value="29.5">29.5</option>
+        <option value="7.0"">7.0" </option>
+
+        <option value="None or Unspecified">None</option>
+      </select>
+    </div>
+
+
+
+    <!-- Coupler -->
+    <div class="form-group mt-2">
+      <label for="Coupler" class="col-sm-2">Coupler</label>
+      <select id="Coupler" class="col-sm-3" name="Coupler">
+        <option value="Missing" selected>Unknown</option>
+        <option value="Hydraulic">Hydraulic</option>
+        <option value="Manual">Manual</option>
+        <option value="None or Unspecified">None</option>
+      </select>
+    </div>
+
+
+
+
+
+    <div class="form-group mt-2">
+      <label for="Coupler_System" class="col-sm-2">Coupler_System</label>
+      <select id="Coupler_System" class="col-sm-3" name="Coupler_System">
+        <option value="Missing" selected>Unknown</option>
+        <option value="None or Unspecified">No</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </div>
+
+
+
+    <!-- GrouserTracks -->
+    <div class="form-group mt-2">
+      <label for="Grouser_Tracks" class="col-sm-2">Grouser_Tracks</label>
+      <select id="Grouser_Tracks" class="col-sm-3" name="Grouser_Tracks">
+        <option value="Missing" selected>Unknown</option>
+        <option value="None or Unspecified">No</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </div>
+
+    <!-- HydraulicsFlow -->
+    <div class="form-group mt-2">
+      <label for="Hydraulics_Flow" class="col-sm-2">Hydraulics_Flow</label>
+      <select id="Hydraulics_Flow" class="col-sm-3" name="Hydraulics_Flow">
+        <option value="Missing" selected>Unknown</option>
+        <option value="High Flow">High Flow</option>
+
+        <option value="None or Unspecified">None</option>
+        <option value="Standard">Standard</option>
+      </select>
+    </div>
+
+
+    <!-- TrackType -->
+    <div class="form-group mt-2">
+      <label for="Track_Type" class="col-sm-2">Track_Type</label>
+      <select id="Track_Type" class="col-sm-3" name="Track_Type">
+        <option value="Missing" selected>Unknown</option>
+        <option value="Rubber">Rubber</option>
+        <option value="Steel">Steel</option>
+      </select>
+    </div>
+
+
+    <!-- UndercarriagePadWidth -->
+    <div class="form-group mt-2">
+      <label for="Undercarriage_Pad_Width" class="col-sm-2">Undercarriage_Pad_Width</label>
+      <select id="Undercarriage_Pad_Width" class="col-sm-3" name="Undercarriage_Pad_Width">
+        <option value="Missing" selected>Unknown</option>
+        <option value="14 inch">14 inch</option>
+        <option value="15 inch">15 inch</option>
+        <option value="16 inch">16 inch</option>
+        <option value="18 inch">18 inch</option>
+        <option value="20 inch">20 inch</option>
+        <option value="22 inch">22 inch</option>
+        <option value="24 inch">24 inch</option>
+        <option value="25 inch">25 inch</option>
+        <option value="26 inch">26 inch</option>
+        <option value="27 inch">27 inch</option>
+        <option value="28 inch">28 inch</option>
+        <option value="30 inch">30 inch</option>
+        <option value="31 inch">31 inch</option>
+        <option value="31.5 inch">31.5 inch</option>
+        <option value="32 inch">32 inch</option>
+        <option value="33 inch">33 inch</option>
+        <option value="34 inch">34 inch</option>
+        <option value="36 inch">36 inch</option>
+        <option value="None or Unspecified">None</option>
+      </select>
+    </div>
+
+
+    <!-- StickLength -->
+    <div class="form-group mt-2">
+      <label for="Stick_Length" class="col-sm-2">Stick_Length</label>
+      <select id="Stick_Length" class="col-sm-3" name="Stick_Length">
+        <option value="Missing" selected>Unknown</option>
+        <option value="10' 10"">10' 10" </option>
+        <option value="10' 2"">10' 2" </option>
+        <option value="10' 6"">10' 6" </option>
+        <option value="11' 0"">11' 0" </option>
+        <option value="11' 10"">11' 10" </option>
+        <option value="12' 10"">12' 10" </option>
+        <option value="12' 4"">12' 4" </option>
+        <option value="12' 8"">12' 8" </option>
+        <option value="13' 10"">13' 10" </option>
+        <option value="13' 7"">13' 7" </option>
+        <option value="13' 9"">13' 9" </option>
+        <option value="14' 1"">14' 1" </option>
+        <option value="15' 4"">15' 4" </option>
+        <option value="15' 9"">15' 9" </option>
+        <option value="19' 8"">19' 8" </option>
+        <option value="24' 3"">24' 3" </option>
+        <option value="6' 3"">6' 3" </option>
+        <option value="7' 10"">7' 10" </option>
+        <option value="8' 10"">8' 10" </option>
+        <option value="8' 2"">8' 2" </option>
+        <option value="8' 4"">8' 4" </option>
+        <option value="8' 6"">8' 6" </option>
+        <option value="9' 10"">9' 10" </option>
+        <option value="9' 2"">9' 2" </option>
+        <option value="9' 5"">9' 5" </option>
+        <option value="9' 6"">9' 6" </option>
+        <option value="9' 7"">9' 7" </option>
+        <option value="9' 8"">9' 8" </option>
+        <option value="None or Unspecified">None</option>
+      </select>
+    </div>
+
+
+
+    <!-- Thumb -->
+    <div class="form-group mt-2">
+      <label for="Thumb" class="col-sm-2">Thumb</label>
+      <select id="Thumb" class="col-sm-3" name="Thumb">
+        <option value="Missing" selected>Unknown</option>
+        <option value="Hydraulic">Hydraulic</option>
+        <option value="Manual">Manual</option>
+        <option value="None or Unspecified">None</option>
+      </select>
+    </div>
+
+
+    <!-- PatternChanger -->
+    <div class="form-group mt-2">
+      <label for="Pattern_Changer" class="col-sm-2">Pattern_Changer</label>
+      <select id="Pattern_Changer" class="col-sm-3" name="Pattern_Changer">
+        <option value="Missing" selected>Unknown</option>
+        <option value="No">No</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </div>
+
+
+
+    <!-- GrouserType -->
+    <div class="form-group mt-2">
+      <label for="Grouser_Type" class="col-sm-2">Grouser_Type</label>
+      <select id="Grouser_Type" class="col-sm-3" name="Grouser_Type">
+        <option value="Missing" selected>Unknown</option>
+        <option value="Double">Double</option>
+        <option value="Single">Single</option>
+        <option value="Triple">Triple</option>
+      </select>
+    </div>
+
+
+
+
+    <!-- BackhoeMounting -->
+    <div class="form-group mt-2">
+      <label for="Backhoe_Mounting" class="col-sm-2">Backhoe_Mounting</label>
+      <select id="Backhoe_Mounting" class="col-sm-3" name="Backhoe_Mounting">
+        <option value="Missing" selected>Unknown</option>
+        <option value="None or Unspecified">No</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </div>
+
+
+    <!-- BladeType -->
+    <div class="form-group mt-2">
+      <label for="Blade_Type" class="col-sm-2">Blade_Type</label>
+      <select id="Blade_Type" class="col-sm-3" name="Blade_Type">
+        <option value="Missing" selected>Unknown</option>
+        <option value="Angle">Angle</option>
+        <option value="Coal">Coal</option>
+        <option value="Landfill">Landfill</option>
+        <option value="No">No</option>
+        <option value="None or Unspecified">None</option>
+        <option value="PAT">PAT</option>
+        <option value="Semi U">Semi U</option>
+        <option value="Straight">Straight</option>
+        <option value="U">U</option>
+        <option value="VPAT">VPAT</option>
+      </select>
+    </div>
+
+
+    <!-- TravelControls -->
+    <div class="form-group mt-2">
+      <label for="Travel_Controls" class="col-sm-2">Travel_Controls</label>
+      <select id="Travel_Controls" class="col-sm-3" name="Travel_Controls">
+        <option value="Missing" selected>Unknown</option>
+        <option value="1 Speed">1 Speed</option>
+        <option value="2 Pedal">2 Pedal</option>
+        <option value="Differential Steer">Differential Steer</option>
+        <option value="Finger Tip">Finger Tip</option>
+        <option value="Lever">Lever</option>
+        <option value="None or Unspecified">None</option>
+        <option value="Pedal">Pedal</option>
+      </select>
+    </div>
+
+
+    <!-- DifferentialType -->
+    <div class="form-group mt-2">
+      <label for="Differential_Type" class="col-sm-2">Differential_Type</label>
+      <select id="Differential_Type" class="col-sm-3" name="Differential_Type">
+        <option value="Missing" selected>Unknown</option>
+        <option value="Limited Slip">Limited Slip</option>
+        <option value="Locking">Locking</option>
+        <option value="No Spin">No Spin</option>
+        <option value="Standard">Standard</option>
+      </select>
+    </div>
+
+    <!-- SteeringControls -->
+    <div class="form-group mt-2">
+      <label for="Steering_Controls" class="col-sm-2">Steering_Controls</label>
+      <select id="Steering_Controls" class="col-sm-3" name="Steering_Controls">
+        <option value="Missing" selected>Unknown</option>
+        <option value="Command Control">Command Control</option>
+        <option value="Conventional">Conventional</option>
+        <option value="Four Wheel Standard">Four Wheel Standard</option>
+        <option value="No">None</option>
+        <option value="Wheel">Wheel</option>
+      </select>
+    </div>
+
+    <!-- SaleDate -->
+    <div class="form-group mt-2">
+      <label for="SaleDate" class="col-sm-2">Sale Date</label>
+      <input type="date" id="SaleDate" name="saledate">
+    </div>
+
+
+
+
+    <br>
+    <br>
+    <button type="submit" class="btn btn-success btn-block btn-large">Predict</button>
+
+  </form>
+</div>
+<br>
+<br>
+
+<div class="container">
+  {{ prediction_text }}
+</div>
+</div>
+
+{% endblock %}
